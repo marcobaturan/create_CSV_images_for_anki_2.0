@@ -1,5 +1,5 @@
-# Auothor: Reset Reboot
-# Collaborator: Marco garcía Baturan
+# Auothor: Reset Reboot (90% of code)
+# Collaborator: Marco garcía Baturan (just 10%, related with format and Tkinter)
 # Date: 2017-2-8-W
 # Theme: Education
 # Licence: Open Source
@@ -36,7 +36,7 @@ if __name__ == "__main__":
     count = 0
     for elem in directory:
         count += 1
-        images.append("{}<img src='{}{}'>".format(count, path, elem))
+        images.append("{} - <img src='{}{}'>".format(count, path, elem))
     previous_img = images[0]  # variable for array of images
     with open('output.csv', 'w') as f:
         for image in images[1:]:
