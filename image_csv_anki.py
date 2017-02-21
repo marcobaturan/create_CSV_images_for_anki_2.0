@@ -6,7 +6,7 @@
 
 """This script is developed for create large decks of images in anki
     for create decks of concatenated images."""
- # import modules
+# import modules
 import os
 from os import listdir
 from os.path import isfile, join
@@ -32,7 +32,11 @@ if __name__ == "__main__":
     path = raw_input('Introduce the path: ')
     directory = [f for f in listdir(path) if isfile(join(path, f))]  # get list from dir, empty because in dir
     directory.sort(key=lambda x: os.path.getmtime(x))  # this order by date
-    images = ["<img src='{}{}'>".format(path, elem) for elem in directory]  # give format html for flashcard
+    images = []
+    count = 0
+    for elem in directory:
+        count += 1
+        images.append("{}<img src='{}{}'>".format(count, path, elem))
     previous_img = images[0]  # variable for array of images
     with open('output.csv', 'w') as f:
         for image in images[1:]:
